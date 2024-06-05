@@ -75,7 +75,10 @@ build_android() {
   clean_build
   echo "Starting building for Android..."
 
-  cmake -DCMAKE_TOOLCHAIN_FILE="$android_sdk_path" -DANDROID_ABI=x86_64 -DBUILD_SHARED_LIBS=OFF \
+  # Extract the desired ABI from the environment variable set by GitHub Actions
+  desired_abi="$DANDROID_ABI"
+  
+  cmake -DCMAKE_TOOLCHAIN_FILE="$android_sdk_path" -DANDROID_ABI="$desired_abi" -DBUILD_SHARED_LIBS=OFF \
   -DWHISPER_BUILD_TESTS=OFF -DWHISPER_BUILD_EXAMPLES=OFF ../
   make
 
