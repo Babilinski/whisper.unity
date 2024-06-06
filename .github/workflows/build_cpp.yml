@@ -272,9 +272,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.arch }}
-          
+              cd whisper-unity
+              sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake -DANDROID_ABI=${{ matrix.arch }}      
       - name: Upload results
         uses: actions/upload-artifact@v3
         with:
