@@ -21,10 +21,6 @@ public class CheckAndroidPreprocessBuild : IPreprocessBuildWithReport
         }
 
         var arch = PlayerSettings.Android.targetArchitectures;
-        if (arch != AndroidArchitecture.ARM64)
-        {
-            throw new Exception("Unsupported architecture! Whisper for Android only supports ARM64. " +
-                                "You can change target architecture in Player Settings.");
-        }
+   
     }
 }
